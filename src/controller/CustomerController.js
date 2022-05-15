@@ -1,5 +1,3 @@
-import jquery-3.6.0.min from "../assets/jQuery/jquery-3.6.0.min.js";
-
 $("#btnAddCus").prop('disabled', true);
 var clickedRowCId;
 /* Validation - Start */
@@ -40,7 +38,7 @@ disableEdit();  //Prevent Editing Customer ID
 
 /* Functions Call Section - End */
 
-$("#addCusModelPop").click(function(){
+$("#addCusModelPop").click(function () {
     generateId();
 });
 
@@ -70,7 +68,26 @@ function addCustomer() {
 
     $("#btnAddCus").click(function () {
         console.log($("#addCusForm").serialize());
+        $.ajax({
+            url: "http://localhost:8080/pos/customer",
+            method: "POST",
+            data: $("#addCusForm").serialize(),
+            success: function (res) {
+                if (res.status == 200) {
+                    alert(res.message);
+                    generateId();
+                    loadAllCustomers();
+                } else {
+                    alert(res.data);
+                }
 
+            },
+            error: function (ob, textStatus, error) {
+                console.log(ob);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
         /* let custId = $("#cusIdAdd").val();
         let custName = $("#cusNameAdd").val();
         let custAddress = $("#cusAddressAdd").val();
@@ -80,12 +97,9 @@ function addCustomer() {
 
         var customerObj = new CustomerDTO(custId, custName, custAddress, custSalary, btns);
         customerDB.push(customerObj); */
-
-        
-
-        loadAllCustomers(); //load all customers
+        // loadAllCustomers(); //load all customers
         clearFields()   //Clear Input Fields
-        generateId();
+
         loadAllCustomerIds();   //Load Customer ID's to Combo Box
     });
 }
