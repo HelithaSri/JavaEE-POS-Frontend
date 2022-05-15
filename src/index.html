@@ -480,26 +480,26 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="addCusForm">
                                 <div class="mb-3">
                                     <label for="cusIdAdd" class="form-label">Customer ID</label>
-                                    <input type="text" class="form-control" id="cusIdAdd" />
+                                    <input type="text" class="form-control" id="cusIdAdd" name="cusID" />
                                     <small id="error1">* Customer ID is a required field, Pattern C00-001</small>
                                     <!-- <small id="error1"></small> -->
                                 </div>
                                 <div class="mb-3">
                                     <label for="cusNameAdd" class="form-label">Customer Name</label>
-                                    <input type="text" class="form-control" id="cusNameAdd" />
+                                    <input type="text" class="form-control" id="cusNameAdd" name="cusName"/>
                                     <small id="error2">* Customer Name is required field, Min 5 & Max 10</small>
                                 </div>
                                 <div class="mb-3">
                                     <label for="cusAddressAdd" class="form-label">Customer Address</label>
-                                    <input type="text" class="form-control" id="cusAddressAdd" />
+                                    <input type="text" class="form-control" id="cusAddressAdd" name="cusAddress"/>
                                     <small id="error3">* Customer Address is required field, Min 5</small>
                                 </div>
                                 <div class="mb-3">
                                     <label for="cusSalaryAdd" class="form-label">Customer Salary</label>
-                                    <input type="text" class="form-control" id="cusSalaryAdd" />
+                                    <input type="text" class="form-control" id="cusSalaryAdd" name="cusSalary"/>
                                     <small id="error4">* Customer Address is required field, Ex:500.00</small>
                                 </div>
                             </form>
@@ -777,7 +777,7 @@
     <script src="controller/OrderController.js"></script>
     <script src="controller/OrderDetailsController.js"></script>
     <script src="assets/js/script.js"></script>
-    
+
 </body>
 
 </html>

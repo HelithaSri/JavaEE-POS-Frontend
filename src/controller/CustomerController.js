@@ -1,3 +1,5 @@
+import jquery-3.6.0.min from "../assets/jQuery/jquery-3.6.0.min.js";
+
 $("#btnAddCus").prop('disabled', true);
 var clickedRowCId;
 /* Validation - Start */
@@ -67,8 +69,9 @@ function validation(regEx, id, error, nextId, btn) {
 function addCustomer() {
 
     $("#btnAddCus").click(function () {
+        console.log($("#addCusForm").serialize());
 
-        let custId = $("#cusIdAdd").val();
+        /* let custId = $("#cusIdAdd").val();
         let custName = $("#cusNameAdd").val();
         let custAddress = $("#cusAddressAdd").val();
         let custSalary = $("#cusSalaryAdd").val();
@@ -76,7 +79,9 @@ function addCustomer() {
             "<button class='btn btn-warning' data-bs-target='#updateCustomer' data-bs-toggle='modal'><i class='bi bi-arrow-clockwise'></i></button> <button class='btn btn-danger cus-delete'><i class='bi bi-trash'></i></button>";
 
         var customerObj = new CustomerDTO(custId, custName, custAddress, custSalary, btns);
-        customerDB.push(customerObj);
+        customerDB.push(customerObj); */
+
+        
 
         loadAllCustomers(); //load all customers
         clearFields()   //Clear Input Fields
